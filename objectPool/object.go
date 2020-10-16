@@ -13,6 +13,7 @@ func newData() *data {
 		L: make([]int64, 0, 10000),
 	}
 }
+
 // Engine Engine
 type Engine struct {
 	pool sync.Pool
