@@ -11,24 +11,24 @@ import (
 
 type User struct {
 	FirstName string `validate:"required"`
-	LastName string `validate:"required"`
-	Age int `validate:"gte=0,lte=130"`
+	LastName  string `validate:"required"`
+	Age       int    `validate:"gte=0,lte=130"`
 }
 
-func Test_validator(t *testing.T)  {
+func Test_validator(t *testing.T) {
 	//v:=validator.New()
 	//内容支持翻译
 	uni := ut.New(zh.New())
-	trans,_ := uni.GetTranslator("zh")
-	v:=validator.New()
+	trans, _ := uni.GetTranslator("zh")
+	v := validator.New()
 	err := zh_translations.RegisterDefaultTranslations(v, trans)
-	if err!=nil {
+	if err != nil {
 		fmt.Println(err)
 	}
 	user := &User{
 		FirstName: "Badger",
 		//LastName:  "Smith",
-		Age:150,
+		Age: 150,
 	}
 	err = v.Struct(user)
 	if err != nil {
