@@ -17,7 +17,6 @@ type User struct {
 
 func Test_validator(t *testing.T) {
 	//v:=validator.New()
-	
 	//内容支持翻译
 	uni := ut.New(zh.New())
 	trans, _ := uni.GetTranslator("zh")
